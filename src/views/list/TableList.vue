@@ -140,13 +140,13 @@ const columns = [
     dataIndex: 'description',
     scopedSlots: { customRender: 'description' }
   },
-  {
-    title: '服务调用次数',
-    dataIndex: 'callNo',
-    sorter: true,
-    needTotal: true,
-    customRender: (text) => text + ' 次'
-  },
+  // {
+  //   title: '服务调用次数',
+  //   dataIndex: 'callNo',
+  //   sorter: true,
+  //   needTotal: true,
+  //   customRender: (text) => text + ' 次'
+  // },
   {
     title: '状态',
     dataIndex: 'status',

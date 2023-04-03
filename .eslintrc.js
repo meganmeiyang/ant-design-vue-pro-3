@@ -22,6 +22,8 @@ module.exports = {
         }
       }
     ],
+    "vue/valid-v-model": "off",
+    "vue/no-deprecated-v-bind-sync": "off",
     'vue/attribute-hyphenation': 0,
     'vue/html-self-closing': 0,
     'vue/component-name-in-template-casing': 0,

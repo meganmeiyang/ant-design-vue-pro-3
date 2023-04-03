@@ -20,7 +20,7 @@ export const asyncRouterMap = [
       {
         path: '/dashboard',
         name: 'dashboard',
-        redirect: '/dashboard/workplace',
+        redirect: '/dashboard/analysis',
         component: RouteView,
         meta: { title: 'menu.dashboard', keepAlive: true, icon: bxAnaalyse, permission: [ 'dashboard' ] },
         children: [
@@ -31,11 +31,11 @@ export const asyncRouterMap = [
             meta: { title: 'menu.dashboard.analysis', keepAlive: false, permission: [ 'dashboard' ] }
           },
           // 外部链接
-          {
-            path: 'https://www.baidu.com/',
-            name: 'Monitor',
-            meta: { title: 'menu.dashboard.monitor', target: '_blank' }
-          },
+          // {
+          //   path: 'https://www.baidu.com/',
+          //   name: 'Monitor',
+          //   meta: { title: 'menu.dashboard.monitor', target: '_blank' }
+          // },
           {
             path: '/dashboard/workplace',
             name: 'Workplace',
@@ -79,14 +79,14 @@ export const asyncRouterMap = [
         name: 'list',
         component: RouteView,
         redirect: '/list/table-list',
-        meta: { title: '列表页', icon: 'table', permission: [ 'table' ] },
+        meta: { title: '产品', icon: 'table', permission: [ 'table' ] },
         children: [
           {
             path: '/list/table-list/:pageNo([1-9]\\d*)?',
             name: 'TableListWrapper',
             hideChildrenInMenu: true, // 强制显示 MenuItem 而不是 SubMenu
-            component: () => import('@/views/list/TableList'),
-            meta: { title: '查询表格', keepAlive: true, permission: [ 'table' ] }
+            component: () => import('@/views/list/MNOProductList'),
+            meta: { title: '运营商产品', keepAlive: true, permission: [ 'table' ] }
           },
           {
             path: '/list/basic-list',

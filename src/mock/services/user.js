@@ -385,27 +385,27 @@ const userNav = (options) => {
       'component': 'RouteView',
       'redirect': '/dashboard/workplace'
     },
-    {
-      'name': 'workplace',
-      'parentId': 1,
-      'id': 7,
-      'meta': {
-        'title': '工作台',
-        'show': true
-      },
-      'component': 'Workplace'
-    },
-    {
-      'name': 'monitor',
-      'path': 'https://www.baidu.com/',
-      'parentId': 1,
-      'id': 3,
-      'meta': {
-        'title': '监控页（外部）',
-        'target': '_blank',
-        'show': true
-      }
-    },
+    // {
+    //   'name': 'workplace',
+    //   'parentId': 1,
+    //   'id': 7,
+    //   'meta': {
+    //     'title': '工作台',
+    //     'show': true
+    //   },
+    //   'component': 'Workplace'
+    // },
+    // {
+    //   'name': 'monitor',
+    //   'path': 'https://www.baidu.com/',
+    //   'parentId': 1,
+    //   'id': 3,
+    //   'meta': {
+    //     'title': '监控页（外部）',
+    //     'target': '_blank',
+    //     'show': true
+    //   }
+    // },
     {
       'name': 'Analysis',
       'parentId': 1,
@@ -465,7 +465,7 @@ const userNav = (options) => {
       'id': 10010,
       'meta': {
         'icon': 'table',
-        'title': '列表页',
+        'title': '产品',
         'show': true
       },
       'redirect': '/list/table-list',

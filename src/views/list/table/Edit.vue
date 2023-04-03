@@ -22,7 +22,7 @@
       <a-form-item
         :labelCol="labelCol"
         :wrapperCol="wrapperCol"
-        label="服务调用次数"
+        label="调用-"
         hasFeedback
         validateStatus="success"
       >

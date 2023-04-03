@@ -10,6 +10,18 @@ export function welcome () {
   return arr[index]
 }
 
+export function generateSKU (letters) {
+  const allowedChars = 'ABCDEFGHJKLMNPQRSTUVWXYZ0123456789'
+  let result = letters.toUpperCase() + '-'
+
+  for (let i = 0; i < 10; i++) {
+    const randomIndex = Math.floor(Math.random() * allowedChars.length)
+    result += allowedChars.charAt(randomIndex)
+  }
+
+  return result
+}
+
 /**
  * 触发 window.resize
  */

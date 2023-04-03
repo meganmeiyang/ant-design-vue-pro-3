@@ -39,18 +39,6 @@ const assetsCDN = {
 
 // vue.config.js
 const vueConfig = {
-  css: {
-    loaderOptions: {
-      less: {
-        modifyVars: {
-          'primary-color': '#ea1845',
-          'link-color': '#FF7E27',
-          'border-radius-base': '8px'
-        },
-        javascriptEnabled: true
-      }
-    }
-  },
   configureWebpack: {
     // webpack plugins
     plugins: [
@@ -102,9 +90,9 @@ const vueConfig = {
         modifyVars: {
           // less vars，customize ant design theme
 
-          // 'primary-color': '#F5222D',
-          // 'link-color': '#F5222D',
-          'border-radius-base': '2px'
+          'primary-color': '#EA1845',
+          'link-color': '#0xFF7E27',
+          'border-radius-base': '8px'
         },
         // DO NOT REMOVE THIS LINE
         javascriptEnabled: true
