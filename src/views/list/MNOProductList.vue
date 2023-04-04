@@ -231,7 +231,7 @@
           table
         </a-card>
       </a-tab-pane>
-      <a-tab-pane key="3" tab="码号产品">
+      <a-tab-pane key="3" tab="IMSI产品">
         <a-card :bordered="false" class="sphere-card">
           table
         </a-card>
@@ -239,6 +239,13 @@
       <a-tab-pane key="4" tab="其它产品">
         <a-card :bordered="false" class="sphere-card">
           table
+        </a-card>
+      </a-tab-pane>
+      <a-tab-pane key="5" tab="系统配置">
+        <a-card :bordered="false" class="sphere-card">
+          <product-settings>
+
+          </product-settings>
         </a-card>
       </a-tab-pane>
     </a-tabs>
@@ -253,6 +260,7 @@ import { getRoleList } from '@/api/manage'
 import StepByStepModal from './modules/StepByStepModal'
 import CreateForm from './modules/CreateSIMForm'
 import { mnoProducts } from '@/mock/mockdata.js'
+import ProductSettings from './modules/ProductSettings.vue'
 
 const columns = [
   {
@@ -471,7 +479,8 @@ export default {
     STable,
     Ellipsis,
     CreateForm,
-    StepByStepModal
+    StepByStepModal,
+    ProductSettings
   },
   data () {
     this.columns = columns
