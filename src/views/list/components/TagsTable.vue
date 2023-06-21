@@ -1,62 +1,90 @@
 <template>
-  <a-table
-    :columns="columns"
-    :data-source="data"
-    :pagination="false"
-    :row-key="record => record.id"
-    :scroll="{ x: 1300 }"
-    size="small"
-    style="margin-top: 24px"
-  >
-    <template slot="tagcolor" slot-scope="text">
-      <a-tag :color="text">
-        {{ text }}
-      </a-tag>
-    </template>
-    <template slot="default" slot-scope="text">
-      <a-tag v-if="text === true">
-        {{ text }}
-      </a-tag>
-    </template>
-    <template slot="operation" slot-scope="text, record">
-      <a @click="() => edit(record.key)">Edit</a>
-    </template>
-  </a-table>
-
+  <div>
+    <a-table
+      :columns="columns"
+      :data-source="data"
+      :pagination="false"
+      :row-key="record => record.id"
+      :scroll="{ x: 1300 }"
+      size="small"
+      style="margin-top: 24px"
+    >
+      <template slot="tagcolor" slot-scope="text">
+        <a-tag :color="text">
+          {{ text }}
+        </a-tag>
+      </template>
+      <template slot="default" slot-scope="text">
+        <a-tag v-if="text === true" color="green">
+          Yes
+        </a-tag>
+      </template>
+      <template slot="action" slot-scope="text, record">
+        <a-button type="link" @click="() => edit(record.key)">
+          <a-icon type="edit" />
+        </a-button>
+      </template>
+    </a-table>
+    <tag-modal
+      v-model="visible"
+      :record="tag"
+      :title="modalTitle"
+      @ok="handleOk"
+      @cancel="handleCancel"
+    />
+  </div>
 </template>
 
 <script>
+import TagModal from './TagModal'
+
 // columns: index, value(EN), value(CN), default value, help text, color
 export default {
+  components: {
+    TagModal
+  },
   name: 'TagsTable',
-  props: {
+  prop: {
     data: {
       type: Array,
       default: () => []
     }
   },
+  // emit edit event
+  methods: {
+    edit (record) {
+      console.log('edit record: ' + record.id)
+      this.visible = true
+    },
+    // handle ok event
+    handleOk (record) {
+      console.log('handle ok: ' + record)
+      this.visible = false
+    },
+    // handle cancel event
+    handleCancel () {
+      console.log('handle cancel')
+      this.visible = false
+    }
+  },
   data () {
     return {
+      visible: false,
       columns: [
         {
           title: '#',
           dataIndex: 'id',
-          width: 100
+          width: 150
         },
         {
-          title: 'Value(EN)',
-          dataIndex: 'value_en',
+          title: 'Value',
+          dataIndex: 'value',
           width: 200
         },
         {
-          title: 'Value(CN)',
-          dataIndex: 'value_cn',
-          width: 200
-        },
-        {
-          title: 'Default Value',
-          dataIndex: 'default_value',
-          width: 200,
+          title: 'Is Default',
+          dataIndex: 'default',
+          width: 150,
           scopedSlots: { customRender: 'default' }
         },
         {
@@ -67,8 +95,14 @@ export default {
         },
         {
           title: 'Help Text',
-          dataIndex: 'help_text',
-          width: 200
+          dataIndex: 'help',
+          width: 300
+        },
+        {
+          title: 'Action',
+          key: 'action',
+          width: 150,
+          scopedSlots: { customRender: 'action' }
         }
       ]
     }

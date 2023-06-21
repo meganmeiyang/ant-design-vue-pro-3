@@ -243,9 +243,7 @@
       </a-tab-pane>
       <a-tab-pane key="5" tab="系统配置">
         <a-card :bordered="false" class="sphere-card">
-          <product-settings>
-
-          </product-settings>
+          <product-settings/>
         </a-card>
       </a-tab-pane>
     </a-tabs>

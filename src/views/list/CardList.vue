@@ -29,7 +29,7 @@
               <a-avatar class="card-avatar" slot="avatar" :src="item.avatar" size="large"/>
               <div class="meta-content" slot="description">{{ item.content }}</div>
             </a-card-meta>
-            <template class="ant-card-actions" slot="actions">
+            <template slot="actions">
               <a>操作一</a>
               <a>操作二</a>
             </template>
